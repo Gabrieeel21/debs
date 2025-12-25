@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipooo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .mascote {
+      width: 150px;
+      height: 150px;
+      background-image: url('./pipo.jpg'); 
+      background-size: cover;
+      animation: flutuar 2s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    @keyframes flutuar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .fala {
+      margin-top: 20px;
+      background: #ffe4ec;
+      border-radius: 12px;
+      padding: 16px 24px;
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 80%;
+      color: #333;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mascote" onclick="mudarFala()" title="Clica em mim!"></div>
+  <div class="fala" id="fala">Oi! Eu sou Pipo, o Gabriel me deixou aqui para cuidar de você, ele me disse que você é bem ansiosa. Me faça carinho com o mouse para eu te falar algumas coisas para melhorar isso</div>
+
+  <script>
+    const falas = [
+      'Você deveria ler um pouquinho! 🐾',
+      'Você já bebeu água hoje? 💧',
+      'Vamos fazer uma pausa e respirar fundo? 😌',
+      'Você é mais incrível do que imagina ✨',
+      'Dia difícil? Estou aqui por você! 💕',
+      'Quer um abraço virtual? Vem cá! 🤗',
+      'Você tem cheiro de pessoa que arrasa 👑',
+      'Não esquece: descanso também é produtividade 🌙',
+      'Se nenhuma das ajudas funcionar, envie mensagem para o Gabriel!!'
+    ];
+
+    function mudarFala() {
+      const fala = document.getElementById('fala');
+      const novaFala = falas[Math.floor(Math.random() * falas.length)];
+      fala.textContent = novaFala;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(145deg, #ffe0e9, #f0f8ff);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 1rem 1rem;
+}
+
+header h1 {
+    color: #444;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Corrigindo a cor e espaçamento dos parágrafos para algo mais agradável */
+p {
+    color: #5a5a5a; /* Cinza suave que não agride os olhos */
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+.project {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(255, 154, 158, 0.2);
+}
+
+.project h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.love-note {
+    background: #ffeef2;
+    border-left: 5px solid #ff9a9e;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.love-note h3 {
+    color: #d67a7d;
+    margin-top: 0;
+}
+
+.love-note p {
+    color: #7a5a5c; /* Tom de marrom rosado para combinar com o fundo da nota */
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: auto;
+    backdrop-filter: blur(5px);
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+footer a {
+    color: #e75480;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

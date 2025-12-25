@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para Debs</title>
+  <link rel="stylesheet" href="carta.css" />
+</head>
+<body>
+  <div class="envelope-container">
+    <div class="envelope" onclick="abrirCarta()">
+      <p>💌 Abrir</p>
+    </div>
+
+    <div class="carta" id="carta">
+      <div class="mensagem">
+        <h2>Querida Debs </h2>
+          <p>
+            Esse projeto é uma pequena demonstração da minha gratidão e carinho por todo o tempo da nossa amizade. Espero que rendam sorrisos a você, assim como você sempre fez por mim e por todo o grupinho durante esses 3 anos (sim, já faz tanto tempo).
+          </p>
+
+          <p>
+              Sua amizade significa muito para mim. Cada momento tornou tudo mágico em uma fase muito difícil da minha vida, quando eu passava por uma depressão, onde até mesmo pensava em tirar a minha vida. Lembro com carinho de vários momentos, desde você brigando comigo e com o Peludo para levarmos o jogo a sério, até momentos de diversão, como quando pedimos para o carinha lá abrir o cu preto pra gente bater um punhetão kkkkk. Foi muito legal.
+          </p>
+
+          <p>
+              Espero que aproveite o seu Natal e continue sendo essa mulher especial que você se tornou. Acompanhei você e sua evolução, mesmo de longe pelas obrigações da vida onde jogar todos os dias já é complicado, e fico muito feliz com suas conquistas e felicidades, e por quem você se tornou e está se tornando. Feliz Natal, Debs!&lt3
+          </p>
+
+            <p style="text-align: right;">Com carinho, <br><strong> Gabriel </strong></p>
+        <button onclick="fecharCarta()">Fechar 💌</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function abrirCarta() {
+      document.getElementById('carta').style.display = 'flex';
+    }
+
+    function fecharCarta() {
+      document.getElementById('carta').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
