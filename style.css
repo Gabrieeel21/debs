@@ -1,3 +1,4 @@
+/* === ESTILO GLOBAL === */
 body {
     margin: 0;
     padding: 0;
@@ -19,7 +20,7 @@ p {
     color: #ff9a9e;
 }
 
-/* --- CONTAINERS E CARDS --- */
+/* --- CONTAINERS E CARDS DO MENU --- */
 header {
     text-align: center;
     padding: 2rem 1rem 1rem;
@@ -42,7 +43,7 @@ header {
 
 .project:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(255, 154, 158, 0.2);
+    box-shadow: 0 8px 24px rgba(255, 154, 158, 0.2);
 }
 
 .love-note {
@@ -66,18 +67,25 @@ footer {
 footer p {
     font-size: 0.9rem;
     color: #666;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 footer a {
-    color: #ff9a9e; /* Rosa Delicado */
+    color: #ff9a9e;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 6px 15px;
     border: 1px solid #ff9a9e;
     border-radius: 20px;
-    margin-left: 10px;
     font-size: 0.8rem;
     transition: all 0.3s ease;
+    /* Impede que o botão quebre ao meio */
+    white-space: nowrap;
+    display: inline-block;
 }
 
 footer a:hover {
@@ -86,7 +94,7 @@ footer a:hover {
     box-shadow: 0 2px 8px rgba(255, 154, 158, 0.4);
 }
 
-/* --- CARTA: AJUSTE PARA NÃO COMER TELA NO CELULAR --- */
+/* --- SISTEMA DA CARTA E ENVELOPE --- */
 .envelope-container {
     flex: 1;
     display: flex;
@@ -99,15 +107,23 @@ footer a:hover {
     background-color: #fff;
     border: 2px solid #ff9a9e;
     color: #ff9a9e;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1.1rem;
     transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 154, 158, 0.15);
+}
+
+.envelope:hover {
+    background-color: #ff9a9e;
+    color: white;
+    transform: scale(1.05);
 }
 
 .carta {
-    display: none;
+    display: none; /* JS controla */
     position: fixed;
     top: 0;
     left: 0;
@@ -119,35 +135,53 @@ footer a:hover {
     align-items: center;
     z-index: 2000;
     padding: 15px;
-    box-sizing: border-box; /* Impede que o padding "coma" a tela */
+    box-sizing: border-box;
 }
 
 .mensagem {
     background: #fff;
     width: 100%;
-    max-width: 500px;
-    max-height: 85vh; /* Garante que caiba na altura do celular */
-    overflow-y: auto; /* Permite rolar o texto se for longo */
+    max-width: 550px;
+    max-height: 85vh; /* Ajuste para caber em qualquer celular */
+    overflow-y: auto; /* Scroll interno para textos longos */
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     box-sizing: border-box;
+    animation: slideUp 0.4s ease;
 }
 
-.mensagem h2 { color: #ff9a9e; text-align: center; }
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mensagem h2 { 
+    color: #ff9a9e; 
+    text-align: center; 
+    margin-top: 0;
+}
 
 .mensagem button {
     display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
+    margin: 25px auto 0;
+    padding: 12px 30px;
     background-color: #ff9a9e;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 25px;
+    font-weight: bold;
     cursor: pointer;
+    /* Segurança para o botão não quebrar */
+    white-space: nowrap;
+    transition: background 0.3s;
 }
 
-/* --- ANIMAÇÕES --- */
+.mensagem button:hover {
+    background-color: #e75480;
+}
+
+/* --- ANIMAÇÕES GERAIS --- */
 .fade-in {
     animation: fadeIn 0.8s ease forwards;
     opacity: 0;
@@ -156,4 +190,17 @@ footer a:hover {
 
 @keyframes fadeIn {
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- AJUSTES PARA TELAS PEQUENAS --- */
+@media (max-width: 480px) {
+    .mensagem {
+        padding: 1.5rem;
+    }
+    .project {
+        padding: 1.2rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
 }
