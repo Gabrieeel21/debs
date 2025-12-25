@@ -6,14 +6,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
-  
-  .envelope-container {
+    min-height: 100vh; /* Melhor que height fixo */
+}
+
+.envelope-container {
     text-align: center;
-  }
-  
-  .envelope {
+    padding: 20px;
+}
+
+.envelope {
     background-color: #ff9a9e;
     color: white;
     padding: 40px 60px;
@@ -22,92 +23,99 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
-  }
-  
-  .envelope:hover {
+}
+
+.envelope:hover {
     transform: scale(1.05);
     background-color: #ff7a89;
-  }
-  
-  .carta {
-    display: none;
+}
+
+/* --- AJUSTE DA CARTA (OVERLAY) --- */
+.carta {
+    display: none; /* JS controla */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 245, 247, 0.95);
+    background-color: rgba(255, 245, 247, 0.98); /* Fundo quase opaco para focar na carta */
     justify-content: center;
     align-items: center;
-    padding: 20px;
-  }
-  
-  .mensagem {
+    z-index: 9999;
+    padding: 10px; /* Margem de segurança para o mobile */
+    box-sizing: border-box; /* ESSENCIAL para não comer a tela */
+}
+
+/* --- AJUSTE DA MENSAGEM (PAPEL) --- */
+.mensagem {
     background: white;
     padding: 30px;
     border-radius: 15px;
-    max-width: 600px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 600px; /* No PC trava aqui */
+    max-height: 90vh; /* No celular não deixa o papel sair da tela */
+    overflow-y: auto; /* Se o texto for grande (como o seu), cria scroll interno */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     text-align: left;
+    box-sizing: border-box; /* Impede que o padding empurre o papel pra fora */
     animation: aparecer 0.6s ease forwards;
-  }
-  
-  .mensagem h2 {
+}
+
+.mensagem h2 {
     color: #e75480;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    margin-top: 0;
+}
+
+.mensagem p {
+    line-height: 1.6;
+    color: #5a5a5a;
+    margin-bottom: 15px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 12px 25px;
     background-color: #e75480;
     color: white;
     border: none;
     border-radius: 10px;
     font-size: 1em;
     cursor: pointer;
-  }
-  
-  button:hover {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
     background-color: #c6426e;
-  }
-  
-  @keyframes aparecer {
+}
+
+@keyframes aparecer {
     from {
-      opacity: 0;
-      transform: translateY(30px);
+        opacity: 0;
+        transform: translateY(30px);
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
+}
 
-  @media (max-width: 600px) {
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 600px) {
     .envelope {
-      padding: 25px 35px;
-      font-size: 1.1em;
+        padding: 25px 35px;
+        font-size: 1.1em;
     }
-  
+
     .mensagem {
-      padding: 20px;
-      max-width: 90%;
-      font-size: 0.95em;
+        padding: 20px;
+        width: 95%; /* Ocupa quase toda a largura */
+        font-size: 0.95em;
     }
-  
+
     button {
-      width: 100%;
-      font-size: 0.95em;
+        width: 100%; /* Botão grande e fácil de clicar no celular */
     }
-  }
-  
-  /* Permitir rolagem quando a carta estiver aberta */
-  .carta {
-    overflow-y: auto;
-  }
-  
-  /* Evitar problemas com 100vh em dispositivos móveis */
-  body {
-    min-height: 100vh;
-    height: auto;
-  }
-  
+}
